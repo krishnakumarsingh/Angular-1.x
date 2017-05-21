@@ -7,6 +7,6 @@ import { MainCtrl } from './main/MainCtrl';
 import { AboutCtrl } from './about/AboutCtrl';
 
 angular.module('angularWebpack', [uirouter])
-.config(Router)
-.controller('MainCtrl', MainCtrl)
-.controller('AboutCtrl', AboutCtrl);
+	.config(Router)
+	.controller('MainCtrl', MainCtrl)
+	.controller('AboutCtrl', AboutCtrl);
