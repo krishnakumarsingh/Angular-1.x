@@ -5,8 +5,8 @@ import uirouter from 'angular-ui-router';
 import { Router } from './router';
 import { MainCtrl } from './main/MainCtrl';
 import { AboutCtrl } from './about/AboutCtrl';
-
+console.log("Hello-1")
 angular.module('angularWebpack', [uirouter])
-	.config(Router)
-	.controller('MainCtrl', MainCtrl)
-	.controller('AboutCtrl', AboutCtrl);
+.config(Router)
+.controller('MainCtrl', MainCtrl)
+.controller('AboutCtrl', AboutCtrl);
