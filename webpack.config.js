@@ -10,6 +10,13 @@ module.exports = {
 		path: './dist',
 		filename: 'bundle.js'
 	},
+	resolve: {
+        root: __dirname,
+        alias: {
+            // Component: 'app/components/Component.jsx',
+        },
+        extensions: ['', '.js', '.jsx'],
+    },
 	module: {
 		loaders: [
 			{
@@ -28,7 +35,11 @@ module.exports = {
 			{
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
 				loader: 'file-loader',
-			}
+			},
+			{
+                test: /\.jpe?g$|\.gif$|\.png$/i,
+                loader: "file-loader?name=/img/[name].[ext]"
+            }
        	]
  },
 
