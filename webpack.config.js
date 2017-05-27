@@ -18,15 +18,27 @@ module.exports = {
         extensions: ['', '.js', '.jsx'],
     },
 	module: {
+		context: __dirname,
 		loaders: [
 			{
 			    test: /\.js?$/,
 			    exclude: /(node_modules|bower_components)/,
-			    loader: 'babel'
+			    loader: 'babel-loader'
 			},
 			{
 				test: /\.scss$/,
 				loader: 'style!css!sass'
+			},
+			{
+				test: /\.css$/,
+				loader: 'style!css!sass'
+			},
+			{
+			  test: /\.(jpg|png|svg)$/,
+			  loader: 'url-loader',
+			  options: {
+			    limit: 25000,
+			  },
 			},
 			{
 				test: /\.html$/,
@@ -37,10 +49,10 @@ module.exports = {
 				loader: 'file-loader',
 			},
 			{
-                test: /\.jpe?g$|\.gif$|\.png$/i,
-                loader: "file-loader?name=/img/[name].[ext]"
-            }
-       	]
+  //IMAGE LOADER
+  test: /\.(jpe?g|png|gif|svg)$/i,
+  loader:'file-loader'
+}       	]
  },
 
  devServer: {

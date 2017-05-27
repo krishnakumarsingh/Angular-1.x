@@ -1,33 +1,68 @@
 // Templates
-import HomeTemplate from './home/home.html'
-import AboutTemplate from './about/about.html'
-import ShopTemplate from './shop/shop.html'
-import CheckoutTemplate from './checkout/checkout.html'
+import HeaderTemplate from './templates/header/header.html'
+import FooterTemplate from './templates/footer/footer.html'
+import HomeTemplate from './templates/home/home.html'
+import AboutTemplate from './templates/about/about.html'
+import ShopTemplate from './templates/shop/shop.html'
+import CheckoutTemplate from './templates/checkout/checkout.html'
 
 /* @ngInject */
 function Router($stateProvider, $urlRouterProvider) {
    $urlRouterProvider.otherwise("/");
+    var header = {
+      templateUrl: HeaderTemplate,
+      controller: function($scope) {}
 
+    }
+     var footer = {
+      templateUrl: FooterTemplate,
+      controller: function($scope) {}
+
+    }
    $stateProvider
        .state('home', {
            url: "/",
-           controller : "HomeCtrl as home",
-           templateUrl: HomeTemplate
+           views: {
+                header: header,
+                content: {
+                   controller : "HomeCtrl as home",
+                   templateUrl: HomeTemplate
+                },
+                footer: footer
+            }
        })
        .state('shop', {
            url: "/shop",
-           controller : "ShopCtrl as shop",
-           templateUrl: ShopTemplate
+           views: {
+                header: header,
+                content: {
+                   controller : "ShopCtrl as shop",
+                   templateUrl: ShopTemplate
+                },
+                footer: footer
+            }
        })
        .state('about', {
            url: "/about",
-           controller : "AboutCtrl as about",
-           templateUrl: AboutTemplate
+           views: {
+                header: header,
+                content: {
+                    controller : "AboutCtrl as about",
+                    templateUrl: AboutTemplate
+                },
+                footer: footer
+            }
        })
        .state('checkout', {
            url: "/checkout",
-           controller : "CheckoutCtrl as checkout",
-           templateUrl: CheckoutTemplate
+           views: {
+                header: header,
+                content: {
+                   controller : "CheckoutCtrl as checkout",
+                   templateUrl: CheckoutTemplate
+                },
+                footer: footer
+            }
        });
 }
 
